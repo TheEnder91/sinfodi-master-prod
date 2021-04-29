@@ -60,5 +60,6 @@
             @include('layouts.footer')
             <aside class="control-sidebar control-sidebar-dark"></aside>
         </div>
+        @yield('scripts')
     </body>
 </html>

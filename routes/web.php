@@ -38,3 +38,8 @@ Route::get('public/login/{user}', function(){
 });
 
 Route::get('welcome', 'WelcomeController')->name('welcome');
+
+Route::prefix('panel_control')->namespace('Admin')->name('admin.')->group(function () {
+    /** Rutas para el catalogo de usuarios */
+    Route::resource('usuarios', 'UsersController')->names('user')->parameters(['usuarios' => 'user'])->only(['index', 'show', 'update']);
+});
