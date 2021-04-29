@@ -15,12 +15,22 @@
         <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                 <li class="nav-header">PANEL DE CONTROL</li>
-                <li class="nav-item">
-                    <a href="{{ route('admin.user.index') }}" class="nav-link">
-                        <i class="nav-icon fa fa-users"></i>
-                        <p>Usuarios</p>
-                    </a>
-                </li>
+                @can('admin-user-index')
+                    <li class="nav-item">
+                        <a href="{{ route('admin.user.index') }}" class="nav-link {{ isRouteActive('admin.user') }}">
+                            <i class="nav-icon fa fa-users"></i>
+                            <p>Usuarios</p>
+                        </a>
+                    </li>
+                @endcan
+                {{-- @can('admin-role-index') --}}
+                    <li class="nav-item">
+                        <a href="{{ route('admin.role.index') }}" class="nav-link {{ isRouteActive('admin.role') }}">
+                            <i class="nav-icon fa fa-unlock-alt"></i>
+                            <p>Roles</p>
+                        </a>
+                    </li>
+                {{-- @endcan --}}
                 <li class="nav-header">ESTIMULOS</li>
                 <li class="nav-item">
                     <a href="#" class="nav-link">

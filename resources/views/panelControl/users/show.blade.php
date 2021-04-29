@@ -44,9 +44,9 @@
                 <div class="col-12">
                     <div class="float-right">
                         <a href="{{ route('admin.user.index') }}" class="btn btn-outline-danger">Cancelar</a>
-                        {{-- @can('admin-user-edit') --}}
+                        @can('admin-user-edit')
                             <button type="submit" class="ml-2 btn btn-success"><i class="fa fa-save"></i> Guardar</button>
-                        {{-- @endcan --}}
+                        @endcan
                     </div>
                 </div>
             </div>
