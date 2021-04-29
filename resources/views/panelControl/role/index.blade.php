@@ -15,11 +15,11 @@
     @component('components.card')
         @slot('title_card', 'Listado de roles')
         <section class="text-right">
-        {{-- @can('admin-role-create') --}}
+        @can('admin-role-create')
                 <a href="{{ route('admin.role.create') }}" class="btn btn-primary" role="button" aria-disabled="true">
                     <i class="fa fa-plus"></i> Nuevo registro
                 </a>
-        {{-- @endcan --}}
+        @endcan
         </section><br>
         <div class="table-responsive">
             <table id="tblRole" class="table table-bordered table-striped">
@@ -40,9 +40,9 @@
                             <td class="text-left">{{ $item->description }}</td>
                             <td>{{ $item->created_at }}</td>
                             <td>
-                            {{-- @can('admin-role-show') --}}
+                            @can('admin-role-show')
                                     <a href="{{ route('admin.role.show', $item->id) }}"><i class="fa fa-edit"></i></a>
-                            {{-- @endcan --}}
+                            @endcan
                             </td>
                         </tr>
                     @endforeach

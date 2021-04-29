@@ -42,9 +42,9 @@
                 <div class="col-12">
                     <div class="float-right">
                         <a href="{{ route('admin.role.index') }}" class="btn btn-outline-danger">Cancelar</a>
-                        {{-- @can('admin-role-edit') --}}
+                        @can('admin-role-edit')
                             <button type="submit" class="ml-2 btn btn-success"><i class="fa fa-save"></i> Guardar</button>
-                        {{-- @endcan --}}
+                        @endcan
                     </div>
                 </div>
             </div>
