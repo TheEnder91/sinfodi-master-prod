@@ -1,1 +1,3 @@
-@include('layouts.app')
+{{-- @include('layouts.app') --}}
+
+{{ dd(auth()->user()->roles) }}
