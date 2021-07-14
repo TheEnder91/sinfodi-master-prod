@@ -7,34 +7,32 @@
 @section('breadcrumb')
     <ol class="breadcrumb float-sm-right">
         <li class="breadcrumb-item"><a href="{{ route('welcome') }}">Inicio</a></li>
-        <li class="breadcrumb-item active">Listado de usuarios</li>
+        <li class="breadcrumb-item active">Listado de permisos</li>
     </ol>
 @endsection
 
 @section('content')
     @component('components.card')
-        @slot('title_card', 'Listado de usuarios')
-        <div class="table-responsive" id="central">
-            <table id="tblUsers" class="table table-bordered table-striped">
+        @slot('title_card', 'Listado de permisos')
+        <div class="table-responsive">
+            <table id="tblPermissions" class="table table-bordered table-striped">
                 <thead>
                     <tr class="text-center">
                         <th width="5%">#</th>
-                        <th>Usuario</th>
-                        <th>Fecha de acceso</th>
-                        <th width="10%">Acciones</th>
+                        <th>Nombre</th>
+                        <th>Categoria</th>
+                        <th>Descripción</th>
+                        <th>Fecha de creación</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($users as $user)
+                    @foreach ($rows as $item)
                         <tr class="text-center">
-                            <th scope="row">{{ $user->id }}</th>
-                            <td>{{ $user->username }}</td>
-                            <td>{{ $user->created_at }}</td>
-                            <td>
-                            @can('admin-user-show')
-                                    <a href="{{ route('admin.user.show', $user->id) }}"><i class="fa fa-edit"></i></a>
-                            @endcan
-                            </td>
+                            <th scope="row">{{ $item->id }}</th>
+                            <td>{{ $item->name }}</td>
+                            <td>{{ $item->categoria }}</td>
+                            <td class="text-left">{{ $item->description }}</td>
+                            <td>{{ $item->created_at }}</td>
                         </tr>
                     @endforeach
                 </tbody>
@@ -43,7 +41,7 @@
         @slot('script_tabla')
             <script>
                 $(function(){
-                    $('#tblUsers').DataTable({
+                    $('#tblPermissions').DataTable({
                         "order":[[0, "asc"]],
                         "language":{
                           "lengthMenu": "Mostrar _MENU_ registros por página.",

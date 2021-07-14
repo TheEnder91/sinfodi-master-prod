@@ -39,36 +39,14 @@
                         </a>
                     </li>
                 @endcan
-                <li class="nav-header">ESTIMULOS</li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link">
-                        <i class="fas fa-circle nav-icon"></i>
-                        <p>Objetivos</p>
-                    </a>
-                </li>
-                <li class="nav-item has-treeview">
-                    <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-circle"></i>
-                        <p>Evaluaciones<i class="right fas fa-angle-left"></i></p>
-                    </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item has-treeview">
-                            <a href="#" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Ciencia<i class="right fas fa-angle-left"></i>
-                                </p>
-                            </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="#" class="nav-link">
-                                        <i class="far fa-dot-circle nav-icon"></i>
-                                        <p>Dirección</p>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
-                </li>
+                @can('admin-permission-index')
+                    <li class="nav-item">
+                        <a href="{{ route('admin.permission.index') }}" class="nav-link {{ isRouteActive('admin.permission') }}">
+                            <i class="nav-icon fa fa-key"></i>
+                            <p>Permisos</p>
+                        </a>
+                    </li>
+                @endcan
             </ul>
         </nav>
     </div>

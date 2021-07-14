@@ -44,4 +44,6 @@ Route::prefix('panel_control')->namespace('Admin')->name('admin.')->group(functi
     Route::resource('usuarios', 'UsersController')->names('user')->parameters(['usuarios' => 'user'])->only(['index', 'show', 'update']);
     /** Rutas para el catalogo de roles */
     Route::resource('roles', 'RolesController')->names('role')->parameters(['roles' => 'role'])->except(['edit', 'destroy']);
+    /** Rutas para el catalogo de permisos */
+    Route::resource('permisos', 'PermissionController')->names('permission')->parameters(['permisos' => 'permission'])->only(['index']);
 });
