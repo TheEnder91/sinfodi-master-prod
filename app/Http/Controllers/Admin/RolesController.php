@@ -34,7 +34,8 @@ class RolesController extends Controller
     {
         return view('panelControl.role.show', [
             'row' => $role,
-            'permissions' => Permission::all()
+            'catPermissions' => Permission::select('id_categoria', 'categoria')->distinct()->get(),
+            'permissionsPanelControl' => Permission::where('id_categoria', 1)->get()
         ]);
     }
 
@@ -47,7 +48,8 @@ class RolesController extends Controller
     {
         return view('panelControl.role.create', [
             'rows' => new Role(),
-            'permissions' => Permission::all()
+            'catPermissions' => Permission::select('id_categoria', 'categoria')->distinct()->get(),
+            'permissionsPanelControl' => Permission::where('id_categoria', 1)->get()
         ]);
     }
 
