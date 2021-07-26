@@ -47,32 +47,50 @@
                         </a>
                     </li>
                 @endcan
-                @if (Auth::user()->hasPermissionTo('estimulo-objetivo-index') || Auth::user()->hasPermissionTo('estimulo-actividadA-index'))
+                @if (Auth::user()->hasPermissionTo('estimulo-objetivo-index') || Auth::user()->hasPermissionTo('estimulo-actividadA-index') || Auth::user()->hasPermissionTo('estimulo-actividadA-index'))
                     <li class="nav-header">ESTIMULOS</li>
                 @endif
-                @can('estimulo-objetivo-index')
-                    <li class="nav-item">
-                        <a href="{{ route('estimulo.objetivo.index') }}" class="nav-link {{ isRouteActive('estimulo.objetivo') }}">
-                            <i class="nav-icon fa fa-cubes"></i>
-                            <p>Objetivos</p>
-                        </a>
-                    </li>
-                @endcan
-                @if (Auth::user()->hasPermissionTo('estimulo-actividadA-index'))
-                    <li class="nav-item {{ isMenuOpen('estimulo.factor1') }}">
-                        <a href="#" class="nav-link {{ isRouteActive('estimulo.factor1') }}">
-                            <i class="nav-icon fa fa-table"></i>
-                            <p><b>Factor 1</b><i class="fa fa-angle-left right"></i></p>
+                @if (Auth::user()->hasPermissionTo('estimulo-objetivo-index') || Auth::user()->hasPermissionTo('estimulo-actividadA-index') || Auth::user()->hasPermissionTo('estimulo-actividadA-index'))
+                    <li class="nav-item {{ isMenuOpen('estimulo.configuracion') }}">
+                        <a href="#" class="nav-link {{ isRouteActive('estimulo.configuracion') }}">
+                            <i class="nav-icon fa fa-cog"></i>
+                            <p><b>Configuración</b><i class="fa fa-angle-left right"></i></p>
                         </a>
                         <ul class="nav nav-treeview">
-                            @can('estimulo-actividadA-index')
+                            @can('estimulo-objetivo-index')
                                 <li class="nav-item">
-                                    <a style="font-size: 15px;" href="{{ route('estimulo.factor1.actividadA.index') }}" class="nav-link {{ isRouteActive('estimulo.factor1.actividadA') }}">
-                                        <i class="far fa-circle fa-2x nav-icon"></i>
-                                        <p>Actividades A</p>
+                                    <a href="{{ route('estimulo.configuracion.objetivo.index') }}" class="nav-link {{ isRouteActive('estimulo.configuracion.objetivo') }}">
+                                        <i class="nav-icon fa fa-circle fa-2x"></i>
+                                        <p>Objetivos</p>
                                     </a>
                                 </li>
                             @endcan
+                            @if (Auth::user()->hasPermissionTo('estimulo-actividadA-index') || Auth::user()->hasPermissionTo('estimulo-actividadB-index'))
+                                <li class="nav-item {{ isMenuOpen('estimulo.configuracion.factor1') }}">
+                                    <a href="#" class="nav-link {{ isRouteActive('estimulo.configuracion.factor1') }}">
+                                        <i class="nav-icon fa fa-circle"></i>
+                                        <p><b>Factor 1</b><i class="fa fa-angle-left right"></i></p>
+                                    </a>
+                                    <ul class="nav nav-treeview">
+                                        @can('estimulo-actividadA-index')
+                                            <li class="nav-item">
+                                                <a style="font-size: 15px;" href="{{ route('estimulo.configuracion.factor1.actividadA.index') }}" class="nav-link {{ isRouteActive('estimulo.configuracion.factor1.actividadA') }}">
+                                                    <i class="far fa-circle fa-2x nav-icon"></i>
+                                                    <p>Actividades A</p>
+                                                </a>
+                                            </li>
+                                        @endcan
+                                        @can('estimulo-actividadB-index')
+                                            <li class="nav-item">
+                                                <a style="font-size: 15px;" href="{{ route('estimulo.configuracion.factor1.actividadB.index') }}" class="nav-link {{ isRouteActive('estimulo.configuracion.factor1.actividadB') }}">
+                                                    <i class="far fa-circle fa-2x nav-icon"></i>
+                                                    <p>Actividades B</p>
+                                                </a>
+                                            </li>
+                                        @endcan
+                                    </ul>
+                                </li>
+                            @endif
                         </ul>
                     </li>
                 @endif

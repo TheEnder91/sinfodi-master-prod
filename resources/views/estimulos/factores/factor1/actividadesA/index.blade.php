@@ -28,7 +28,7 @@
             <i class="fa fa-plus"></i> Agregar criterio
         @endsection
         @section('content_modal')
-            <form id="formNuevo" action="{{ route('estimulo.factor1.actividadA.store') }}" method="post">
+            <form id="formNuevo" action="{{ route('estimulo.configuracion.factor1.actividadA.store') }}" method="post">
                 @csrf
                 @include('estimulos.factores.factor1.actividadesA.form')
                 @section('buttons_modal')

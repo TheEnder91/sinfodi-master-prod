@@ -50,9 +50,12 @@ Route::prefix('panel_control')->namespace('Admin')->name('admin.')->group(functi
 
 Route::prefix('estimulos')->namespace('Estimulos')->name('estimulo.')->group(function(){
     /** Rutas para el catalogo de objetivos */
-    Route::resource('objetivos', 'ObjetivosController')->names('objetivo')->parameters(['objetivos' => 'objetivo'])->except(['create', 'show']);
+    Route::resource('objetivos', 'ObjetivosController')->names('configuracion.objetivo')->parameters(['objetivos' => 'objetivo'])->except(['create', 'show']);
     Route::get('tblObjetivos', 'ObjetivosController@tabla')->name('tblObjetivos');
     /** Rutas para el catalogo de Actividades A... */
-    Route::resource('actividadesA', 'Factor1\ActividadesAController')->names('factor1.actividadA')->parameters(['actividadesA' => 'actividadA'])->except(['create', 'show']);
+    Route::resource('actividadesA', 'Factor1\ActividadesAController')->names('configuracion.factor1.actividadA')->parameters(['actividadesA' => 'actividadA'])->except(['create', 'show']);
     Route::get('tblActividadesA', 'Factor1\ActividadesAController@tablaActividadesA');
+    /** Rutas para el catalogo de Actividades B... */
+    Route::resource('actividadesB', 'Factor1\ActividadesBController')->names('configuracion.factor1.actividadB')->parameters(['actividadesB' => 'actividadB'])->except(['create', 'show']);
+    Route::get('tblActividadesB', 'Factor1\ActividadesBController@tablaActividadesB');
 });

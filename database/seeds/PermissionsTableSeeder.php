@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\UsersController;
 use App\Http\Controllers\Admin\PermissionController;
 use App\Http\Controllers\Estimulos\ObjetivosController;
 use App\Http\Controllers\Estimulos\Factor1\ActividadesAController;
+use App\Http\Controllers\Estimulos\Factor1\ActividadesBController;
 
 class PermissionsTableSeeder extends Seeder
 {
@@ -40,5 +41,11 @@ class PermissionsTableSeeder extends Seeder
         Permission::updateOrCreate(['name' => ActividadesAController::PERMISSIONS['show']], ['description' => 'Detalle Actividades A.', 'id_categoria' => 2, 'categoria' => 'Estimulos']);
         Permission::updateOrCreate(['name' => ActividadesAController::PERMISSIONS['edit']], ['description' => 'Editar Actividades A.', 'id_categoria' => 2, 'categoria' => 'Estimulos']);
         Permission::updateOrCreate(['name' => ActividadesAController::PERMISSIONS['delete']], ['description' => 'Eliminar Actividades A.', 'id_categoria' => 2, 'categoria' => 'Estimulos']);
+        // /** Permisos para el catalogo de actividades B */
+        Permission::updateOrCreate(['name' => ActividadesBController::PERMISSIONS['index']], ['description' => 'Listado Actividades B.', 'id_categoria' => 2, 'categoria' => 'Estimulos']);
+        Permission::updateOrCreate(['name' => ActividadesBController::PERMISSIONS['create']], ['description' => 'Nuevo Actividades B.', 'id_categoria' => 2, 'categoria' => 'Estimulos']);
+        Permission::updateOrCreate(['name' => ActividadesBController::PERMISSIONS['show']], ['description' => 'Detalle Actividades B.', 'id_categoria' => 2, 'categoria' => 'Estimulos']);
+        Permission::updateOrCreate(['name' => ActividadesBController::PERMISSIONS['edit']], ['description' => 'Editar Actividades B.', 'id_categoria' => 2, 'categoria' => 'Estimulos']);
+        Permission::updateOrCreate(['name' => ActividadesBController::PERMISSIONS['delete']], ['description' => 'Eliminar Actividades B.', 'id_categoria' => 2, 'categoria' => 'Estimulos']);
     }
 }

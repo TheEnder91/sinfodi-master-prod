@@ -7,30 +7,30 @@
 @section('breadcrumb')
     <ol class="breadcrumb float-sm-right">
         <li class="breadcrumb-item"><a href="{{ route('welcome') }}">Inicio</a></li>
-        <li class="breadcrumb-item active">Listado de objetivos</li>
+        <li class="breadcrumb-item active">Tabla 1. Actividades B</li>
     </ol>
 @endsection
 
 @section('content')
     @component('components.card')
-        @slot('title_card', 'Listado de objetivos')
+        @slot('title_card', 'Tabla 1. Actividades B')
         <section class="text-right">
-            @can('estimulo-objetivo-create')
+            @can('estimulo-actividadB-create')
                 <button class="btn btn-primary" data-toggle="modal" data-target="#modalNuevo" onclick="$('#formNuevo')[0].reset();">
-                    <i class="fa fa-plus"></i> Nuevo objetivo
+                    <i class="fa fa-plus"></i> Nuevo criterio
                 </button>
             @endcan
         </section><br>
         <div id="tabla"></div>
-        @include('estimulos.objetivos.modalEditar')
+        @include('estimulos.factores.factor1.actividadesB.modalEditar')
         {{-- Modal nuevo registro --}}
         @section('title_modal')
-            <i class="fa fa-plus"></i> Agregar objetivo
+            <i class="fa fa-plus"></i> Agregar criterio
         @endsection
         @section('content_modal')
-            <form id="formNuevo" action="{{ route('estimulo.configuracion.objetivo.store') }}" method="post">
+            <form id="formNuevo" action="{{ route('estimulo.configuracion.factor1.actividadB.store') }}" method="post">
                 @csrf
-                @include('estimulos.objetivos.form')
+                @include('estimulos.factores.factor1.actividadesB.form')
                 @section('buttons_modal')
                     <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Cancelar</button>
                     <button type="submit" class="ml-2 btn btn-primary"><i class="fa fa-save"></i> Guardar</button>
@@ -61,20 +61,29 @@
         });
 
         function ver_tabla(){
-            $.get('tblObjetivos', function(data){
+            $.get('tblActividadesB', function(data){
                 $('#tabla').empty().html(data);
             });
         }
 
+        function soloNumeros(e){
+	        var key = window.Event ? e.which : e.keyCode;
+	        return ((key >= 48 && key <= 57) || (key==8) || (key==46));
+        }
+
         function ver_datos(id){
-            $.get('objetivos/' + id + '/edit', function(data){
+            $.get('actividadesB/' + id + '/edit', function(data){
                 $('#id').val(data.id);
-                $('input[name="nombre"]').val(data.nombre);
+                $('#nombre').val(data.nombre);
+                $('#id_objetivo').val(data.id_objetivo);
+                $('input[name="puntos"]').val(data.puntos);
             });
 
             $('#btn_actualizar').on('click', function(){
                 var id = $('#id').val();
-                var nombre = $('input[name="nombre"]').val();
+                var nombre = $('#nombre').val();
+                var id_objetivo = $('#id_objetivo').val();
+                var puntos = $('input[name="puntos"]').val();
                 var token = $('input[name="_token"]').val();
                 swal({
                     type: 'warning',
@@ -87,10 +96,12 @@
                 }).then((result) => {
                     if (result) {
                         $.ajax({
-                            url: 'objetivos/' + id,
+                            url: 'actividadesA/' + id,
                             type: 'PUT',
                             data: {
                                 nombre: nombre,
+                                id_objetivo: id_objetivo,
+                                puntos: puntos,
                                 _token: token
                             },
                             success: function(data){
