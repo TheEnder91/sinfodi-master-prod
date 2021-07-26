@@ -58,4 +58,7 @@ Route::prefix('estimulos')->namespace('Estimulos')->name('estimulo.')->group(fun
     /** Rutas para el catalogo de Actividades B... */
     Route::resource('actividadesB', 'Factor1\ActividadesBController')->names('configuracion.factor1.actividadB')->parameters(['actividadesB' => 'actividadB'])->except(['create', 'show']);
     Route::get('tblActividadesB', 'Factor1\ActividadesBController@tablaActividadesB');
+    /** Rutas para el catalogo de nivel de responsabilidad... */
+    Route::resource('responsabilidades', 'Factor1\ResponsabilidadesController')->names('configuracion.factor1.responsabilidad')->parameters(['responsabilidades' => 'responsabilidad'])->except(['create', 'show']);
+    Route::get('tblResponsabilidades', 'Factor1\ResponsabilidadesController@tablaResponsabilidades');
 });

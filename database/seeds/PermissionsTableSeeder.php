@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\PermissionController;
 use App\Http\Controllers\Estimulos\ObjetivosController;
 use App\Http\Controllers\Estimulos\Factor1\ActividadesAController;
 use App\Http\Controllers\Estimulos\Factor1\ActividadesBController;
+use App\Http\Controllers\Estimulos\Factor1\ResponsabilidadesController;
 
 class PermissionsTableSeeder extends Seeder
 {
@@ -47,5 +48,11 @@ class PermissionsTableSeeder extends Seeder
         Permission::updateOrCreate(['name' => ActividadesBController::PERMISSIONS['show']], ['description' => 'Detalle Actividades B.', 'id_categoria' => 2, 'categoria' => 'Estimulos']);
         Permission::updateOrCreate(['name' => ActividadesBController::PERMISSIONS['edit']], ['description' => 'Editar Actividades B.', 'id_categoria' => 2, 'categoria' => 'Estimulos']);
         Permission::updateOrCreate(['name' => ActividadesBController::PERMISSIONS['delete']], ['description' => 'Eliminar Actividades B.', 'id_categoria' => 2, 'categoria' => 'Estimulos']);
+        // /** Permisos para el catalogo de Nivel de responsabildad */
+        Permission::updateOrCreate(['name' => ResponsabilidadesController::PERMISSIONS['index']], ['description' => 'Listado Nivel de Responsabilidad.', 'id_categoria' => 2, 'categoria' => 'Estimulos']);
+        Permission::updateOrCreate(['name' => ResponsabilidadesController::PERMISSIONS['create']], ['description' => 'Nuevo Nivel de Responsabilidad.', 'id_categoria' => 2, 'categoria' => 'Estimulos']);
+        Permission::updateOrCreate(['name' => ResponsabilidadesController::PERMISSIONS['show']], ['description' => 'Detalle Nivel de Responsabilidad.', 'id_categoria' => 2, 'categoria' => 'Estimulos']);
+        Permission::updateOrCreate(['name' => ResponsabilidadesController::PERMISSIONS['edit']], ['description' => 'Editar Nivel de Responsabilidad.', 'id_categoria' => 2, 'categoria' => 'Estimulos']);
+        Permission::updateOrCreate(['name' => ResponsabilidadesController::PERMISSIONS['delete']], ['description' => 'Eliminar Nivel de Responsabilidad.', 'id_categoria' => 2, 'categoria' => 'Estimulos']);
     }
 }

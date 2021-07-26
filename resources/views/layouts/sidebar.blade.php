@@ -88,6 +88,14 @@
                                                 </a>
                                             </li>
                                         @endcan
+                                        @can('estimulo-responsabilidad-index')
+                                            <li class="nav-item">
+                                                <a style="font-size: 15px;" href="{{ route('estimulo.configuracion.factor1.responsabilidad.index') }}" class="nav-link {{ isRouteActive('estimulo.configuracion.factor1.responsabilidad') }}">
+                                                    <i class="far fa-circle nav-icon"></i>
+                                                    <p>Responsabilidades</p>
+                                                </a>
+                                            </li>
+                                        @endcan
                                     </ul>
                                 </li>
                             @endif
