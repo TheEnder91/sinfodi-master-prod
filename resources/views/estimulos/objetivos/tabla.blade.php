@@ -1,5 +1,6 @@
 <div class="table-responsive">
     <table id="tblObjetivos" class="table table-bordered table-striped">
+        <caption>Listado de objetivos establecidos para la evaluación.</caption>
         <thead>
             <tr class="text-center">
                 <th scope="col">#</th>

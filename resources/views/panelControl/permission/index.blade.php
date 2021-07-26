@@ -16,6 +16,7 @@
         @slot('title_card', 'Listado de permisos')
         <div class="table-responsive">
             <table id="tblPermissions" class="table table-bordered table-striped">
+                <caption>Listado de permisos disponibles</caption>
                 <thead>
                     <tr class="text-center">
                         <th width="5%">#</th>

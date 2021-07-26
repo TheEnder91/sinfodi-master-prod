@@ -1,5 +1,6 @@
 <div class="table-responsive">
     <table id="tblActividadesB" class="table table-bordered table-striped">
+        <caption>Actividades sustantivas que, ademas, buscan impulsar el trabajo colaborativo, la transferencia de tecnologia, la rentabilidad de los proyectos y contribuyen a alcanzar la autosostentabilidad del centro.</caption>
         <thead>
             <tr class="text-center">
                 <th scope="col">#</th>

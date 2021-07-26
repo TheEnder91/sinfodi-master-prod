@@ -1,5 +1,6 @@
 <div class="table-responsive">
     <table id="tblImpacto" class="table table-bordered table-striped">
+        <caption>Listado del factor por nivel de impacto al desarrollo institucional.</caption>
         <thead>
             <tr class="text-center">
                 <th scope="col">#</th>

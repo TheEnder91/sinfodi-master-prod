@@ -1,5 +1,6 @@
 <div class="table-responsive">
     <table id="tblResponsabilidades" class="table table-bordered table-striped">
+        <caption>Listado de puntaje según el nivel de responsabilidad.</caption>
         <thead>
             <tr class="text-center">
                 <th scope="col">#</th>

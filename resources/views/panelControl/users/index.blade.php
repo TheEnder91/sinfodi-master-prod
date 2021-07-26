@@ -16,6 +16,7 @@
         @slot('title_card', 'Listado de usuarios')
         <div class="table-responsive" id="central">
             <table id="tblUsers" class="table table-bordered table-striped">
+                <caption>Lisado de usuarios a los cuales se les dara un rol.</caption>
                 <thead>
                     <tr class="text-center">
                         <th width="5%">#</th>

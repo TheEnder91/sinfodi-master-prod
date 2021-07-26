@@ -1,5 +1,6 @@
 <div class="table-responsive">
     <table id="tblActividadesA" class="table table-bordered table-striped">
+        <caption>Actividades sustantivas que representan la contribución directa de la productividad del personal a las metas e indicadores instituciones.</caption>
         <thead>
             <tr class="text-center">
                 <th scope="col">#</th>
