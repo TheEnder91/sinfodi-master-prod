@@ -47,3 +47,12 @@ Route::prefix('panel_control')->namespace('Admin')->name('admin.')->group(functi
     /** Rutas para el catalogo de permisos */
     Route::resource('permisos', 'PermissionController')->names('permission')->parameters(['permisos' => 'permission'])->only(['index']);
 });
+
+Route::prefix('estimulos')->namespace('Estimulos')->name('estimulo.')->group(function(){
+    /** Rutas para el catalogo de objetivos */
+    Route::resource('objetivos', 'ObjetivosController')->names('objetivo')->parameters(['objetivos' => 'objetivo'])->except(['create', 'show']);
+    Route::get('tblObjetivos', 'ObjetivosController@tabla')->name('tblObjetivos');
+    /** Rutas para el catalogo de Actividades A... */
+    Route::resource('actividadesA', 'Factor1\ActividadesAController')->names('factor1.actividadA')->parameters(['actividadesA' => 'actividadA'])->except(['create', 'show']);
+    Route::get('tblActividadesA', 'Factor1\ActividadesAController@tablaActividadesA');
+});

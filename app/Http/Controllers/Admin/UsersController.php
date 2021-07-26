@@ -53,7 +53,7 @@ class UsersController extends Controller
     public function update(Request $request, User $user)
     {
         $status = 'success';
-        $content = 'Se realizo correctamente el registro.';
+        $content = 'Se agrego correctamente el registro.';
         try{
             $user->fill($request->all())->save();
             $user->syncRoles($request->rol);

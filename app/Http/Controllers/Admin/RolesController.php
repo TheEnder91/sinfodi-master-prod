@@ -35,7 +35,8 @@ class RolesController extends Controller
         return view('panelControl.role.show', [
             'row' => $role,
             'catPermissions' => Permission::select('id_categoria', 'categoria')->distinct()->get(),
-            'permissionsPanelControl' => Permission::where('id_categoria', 1)->get()
+            'permissionsPanelControl' => Permission::where('id_categoria', 1)->get(),
+            'permissionsEstimulos' => Permission::where('id_categoria', 2)->get()
         ]);
     }
 
@@ -49,7 +50,8 @@ class RolesController extends Controller
         return view('panelControl.role.create', [
             'rows' => new Role(),
             'catPermissions' => Permission::select('id_categoria', 'categoria')->distinct()->get(),
-            'permissionsPanelControl' => Permission::where('id_categoria', 1)->get()
+            'permissionsPanelControl' => Permission::where('id_categoria', 1)->get(),
+            'permissionsEstimulos' => Permission::where('id_categoria', 2)->get()
         ]);
     }
 
@@ -62,7 +64,7 @@ class RolesController extends Controller
     public function store(Request $request)
     {
         $status = 'success';
-        $content = 'Se realizo correctamente el registro.';
+        $content = 'Se agrego correctamente el registro.';
         try{
             $row = new Role($request->all());
             $row->save();

@@ -5,6 +5,8 @@ use Spatie\Permission\Models\Permission;
 use App\Http\Controllers\Admin\RolesController;
 use App\Http\Controllers\Admin\UsersController;
 use App\Http\Controllers\Admin\PermissionController;
+use App\Http\Controllers\Estimulos\ObjetivosController;
+use App\Http\Controllers\Estimulos\Factor1\ActividadesAController;
 
 class PermissionsTableSeeder extends Seeder
 {
@@ -26,5 +28,17 @@ class PermissionsTableSeeder extends Seeder
         Permission::updateOrCreate(['name' => RolesController::PERMISSIONS['edit']], ['description' => 'Editar el rol.', 'id_categoria' => 1, 'categoria' => 'Panel de control']);
         /** Permisos para el catalogo de permisos */
         Permission::updateOrCreate(['name' => PermissionController::PERMISSIONS['index']], ['description' => 'Visualizar listado de permisos.' , 'id_categoria' => 1, 'categoria' => 'Panel de control']);
+        /** Permisos para el catalogo de objetivos */
+        Permission::updateOrCreate(['name' => ObjetivosController::PERMISSIONS['index']], ['description' => 'Listado de objetivos.', 'id_categoria' => 2, 'categoria' => 'Estimulos']);
+        Permission::updateOrCreate(['name' => ObjetivosController::PERMISSIONS['create']], ['description' => 'Nuevo objetivo.', 'id_categoria' => 2, 'categoria' => 'Estimulos']);
+        Permission::updateOrCreate(['name' => ObjetivosController::PERMISSIONS['show']], ['description' => 'Detalle del objetivo.', 'id_categoria' => 2, 'categoria' => 'Estimulos']);
+        Permission::updateOrCreate(['name' => ObjetivosController::PERMISSIONS['edit']], ['description' => 'Editar objetivo.', 'id_categoria' => 2, 'categoria' => 'Estimulos']);
+        Permission::updateOrCreate(['name' => ObjetivosController::PERMISSIONS['delete']], ['description' => 'Eliminar objetivo.', 'id_categoria' => 2, 'categoria' => 'Estimulos']);
+        // /** Permisos para el catalogo de actividades A */
+        Permission::updateOrCreate(['name' => ActividadesAController::PERMISSIONS['index']], ['description' => 'Listado Actividades A.', 'id_categoria' => 2, 'categoria' => 'Estimulos']);
+        Permission::updateOrCreate(['name' => ActividadesAController::PERMISSIONS['create']], ['description' => 'Nuevo Actividades A.', 'id_categoria' => 2, 'categoria' => 'Estimulos']);
+        Permission::updateOrCreate(['name' => ActividadesAController::PERMISSIONS['show']], ['description' => 'Detalle Actividades A.', 'id_categoria' => 2, 'categoria' => 'Estimulos']);
+        Permission::updateOrCreate(['name' => ActividadesAController::PERMISSIONS['edit']], ['description' => 'Editar Actividades A.', 'id_categoria' => 2, 'categoria' => 'Estimulos']);
+        Permission::updateOrCreate(['name' => ActividadesAController::PERMISSIONS['delete']], ['description' => 'Eliminar Actividades A.', 'id_categoria' => 2, 'categoria' => 'Estimulos']);
     }
 }

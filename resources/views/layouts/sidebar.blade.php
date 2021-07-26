@@ -47,6 +47,35 @@
                         </a>
                     </li>
                 @endcan
+                @if (Auth::user()->hasPermissionTo('estimulo-objetivo-index') || Auth::user()->hasPermissionTo('estimulo-actividadA-index'))
+                    <li class="nav-header">ESTIMULOS</li>
+                @endif
+                @can('estimulo-objetivo-index')
+                    <li class="nav-item">
+                        <a href="{{ route('estimulo.objetivo.index') }}" class="nav-link {{ isRouteActive('estimulo.objetivo') }}">
+                            <i class="nav-icon fa fa-cubes"></i>
+                            <p>Objetivos</p>
+                        </a>
+                    </li>
+                @endcan
+                @if (Auth::user()->hasPermissionTo('estimulo-actividadA-index'))
+                    <li class="nav-item {{ isMenuOpen('estimulo.factor1') }}">
+                        <a href="#" class="nav-link {{ isRouteActive('estimulo.factor1') }}">
+                            <i class="nav-icon fa fa-table"></i>
+                            <p><b>Factor 1</b><i class="fa fa-angle-left right"></i></p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            @can('estimulo-actividadA-index')
+                                <li class="nav-item">
+                                    <a style="font-size: 15px;" href="{{ route('estimulo.factor1.actividadA.index') }}" class="nav-link {{ isRouteActive('estimulo.factor1.actividadA') }}">
+                                        <i class="far fa-circle fa-2x nav-icon"></i>
+                                        <p>Actividades A</p>
+                                    </a>
+                                </li>
+                            @endcan
+                        </ul>
+                    </li>
+                @endif
             </ul>
         </nav>
     </div>

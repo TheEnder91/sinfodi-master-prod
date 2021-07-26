@@ -47,6 +47,15 @@
                                     @endforeach
                                 </div>
                             </div>
+                            <div class="tab-pane text-left fade" id="vert-tabs-2" role="tabpanel" aria-labelledby="vert-tabs-2-tab">
+                                <div style="column-count:2; list-style: none;">
+                                    @foreach ($permissionsEstimulos as $itemPermissions)
+                                        <div class="col-12">
+                                            <li>{!! Field::checkbox("permission[{$itemPermissions->id}]", $itemPermissions->id, ['label' => $itemPermissions->description]) !!}</li>
+                                        </div>
+                                    @endforeach
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
