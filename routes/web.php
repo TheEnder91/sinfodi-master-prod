@@ -67,4 +67,7 @@ Route::prefix('estimulos')->namespace('Estimulos')->name('estimulo.')->group(fun
     /** Rutas para el catalogo de nivel de impacto al desarrollo institucional... */
     Route::resource('impactos', 'Factor2\ImpactosController')->names('configuracion.factor2.impacto')->parameters(['impactos' => 'impacto'])->except(['create', 'show']);
     Route::get('tblImpacto', 'Factor2\ImpactosController@tablaImpacto');
+    /** Rutas para el catalogo de Factor por desempeño... */
+    Route::resource('desempenos', 'Factor3\DesempeñoController')->names('configuracion.factor3.desempeno')->parameters(['desempenos' => 'desempeno'])->except(['create', 'show']);
+    Route::get('tblDesempeno', 'Factor3\DesempeñoController@tablaDesempeño');
 });

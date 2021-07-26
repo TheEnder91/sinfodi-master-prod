@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\PermissionController;
 use App\Http\Controllers\Estimulos\ObjetivosController;
 use App\Http\Controllers\Estimulos\Factor2\MetasController;
 use App\Http\Controllers\Estimulos\Factor2\ImpactosController;
+use App\Http\Controllers\Estimulos\Factor3\DesempeñoController;
 use App\Http\Controllers\Estimulos\Factor1\ActividadesAController;
 use App\Http\Controllers\Estimulos\Factor1\ActividadesBController;
 use App\Http\Controllers\Estimulos\Factor1\ResponsabilidadesController;
@@ -68,5 +69,11 @@ class PermissionsTableSeeder extends Seeder
         Permission::updateOrCreate(['name' => ImpactosController::PERMISSIONS['show']], ['description' => 'Detalle Factor por Nivel de Impacto.', 'id_categoria' => 2, 'categoria' => 'Estimulos']);
         Permission::updateOrCreate(['name' => ImpactosController::PERMISSIONS['edit']], ['description' => 'Editar Factor por Nivel de Impacto.', 'id_categoria' => 2, 'categoria' => 'Estimulos']);
         Permission::updateOrCreate(['name' => ImpactosController::PERMISSIONS['delete']], ['description' => 'Eliminar Factor por Nivel de Impacto.', 'id_categoria' => 2, 'categoria' => 'Estimulos']);
+        // /** Permisos para el catalogo de Factor de desempeño */
+        Permission::updateOrCreate(['name' => DesempeñoController::PERMISSIONS['index']], ['description' => 'Listado Factor por Desempeño.', 'id_categoria' => 2, 'categoria' => 'Estimulos']);
+        Permission::updateOrCreate(['name' => DesempeñoController::PERMISSIONS['create']], ['description' => 'Nuevo Factor por Desempeño.', 'id_categoria' => 2, 'categoria' => 'Estimulos']);
+        Permission::updateOrCreate(['name' => DesempeñoController::PERMISSIONS['show']], ['description' => 'Detalle Factor por Desempeño.', 'id_categoria' => 2, 'categoria' => 'Estimulos']);
+        Permission::updateOrCreate(['name' => DesempeñoController::PERMISSIONS['edit']], ['description' => 'Editar Factor por Desempeño.', 'id_categoria' => 2, 'categoria' => 'Estimulos']);
+        Permission::updateOrCreate(['name' => DesempeñoController::PERMISSIONS['delete']], ['description' => 'Eliminar Factor por Desempeño.', 'id_categoria' => 2, 'categoria' => 'Estimulos']);
     }
 }

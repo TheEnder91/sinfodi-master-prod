@@ -48,11 +48,13 @@
                     </li>
                 @endcan
                 @if (Auth::user()->hasPermissionTo('estimulo-objetivo-index') || Auth::user()->hasPermissionTo('estimulo-actividadA-index') || Auth::user()->hasPermissionTo('estimulo-actividadB-index') ||
-                     Auth::user()->hasPermissionTo('estimulo-responsabilidad-index') || Auth::user()->hasPermissionTo('estimulo-meta-index') || Auth::user()->hasPermissionTo('estimulo-impacto-index'))
+                     Auth::user()->hasPermissionTo('estimulo-responsabilidad-index') || Auth::user()->hasPermissionTo('estimulo-meta-index') || Auth::user()->hasPermissionTo('estimulo-impacto-index') ||
+                     Auth::user()->hasPermissionTo('estimulo-desempeño-index'))
                     <li class="nav-header">ESTIMULOS</li>
                 @endif
                 @if (Auth::user()->hasPermissionTo('estimulo-objetivo-index') || Auth::user()->hasPermissionTo('estimulo-actividadA-index') || Auth::user()->hasPermissionTo('estimulo-actividadB-index') ||
-                     Auth::user()->hasPermissionTo('estimulo-responsabilidad-index') || Auth::user()->hasPermissionTo('estimulo-meta-index') || Auth::user()->hasPermissionTo('estimulo-impacto-index'))
+                     Auth::user()->hasPermissionTo('estimulo-responsabilidad-index') || Auth::user()->hasPermissionTo('estimulo-meta-index') || Auth::user()->hasPermissionTo('estimulo-impacto-index') ||
+                     Auth::user()->hasPermissionTo('estimulo-desempeño-index'))
                     <li class="nav-item {{ isMenuOpen('estimulo.configuracion') }}">
                         <a href="#" class="nav-link {{ isRouteActive('estimulo.configuracion') }}">
                             <i class="nav-icon fa fa-cog"></i>
@@ -121,6 +123,24 @@
                                                 <a style="font-size: 15px;" href="{{ route('estimulo.configuracion.factor2.impacto.index') }}" class="nav-link {{ isRouteActive('estimulo.configuracion.factor2.impacto') }}">
                                                     <i class="far fa-circle nav-icon"></i>
                                                     <p>Nivel de impacto</p>
+                                                </a>
+                                            </li>
+                                        @endcan
+                                    </ul>
+                                </li>
+                            @endif
+                            @if (Auth::user()->hasPermissionTo('estimulo-desempeño-index'))
+                                <li class="nav-item {{ isMenuOpen('estimulo.configuracion.factor3') }}">
+                                    <a href="#" class="nav-link {{ isRouteActive('estimulo.configuracion.factor3') }}">
+                                        <i class="nav-icon fa fa-circle"></i>
+                                        <p><b>Factor 3</b><i class="fa fa-angle-left right"></i></p>
+                                    </a>
+                                    <ul class="nav nav-treeview">
+                                        @can('estimulo-desempeño-index')
+                                            <li class="nav-item">
+                                                <a style="font-size: 15px;" href="{{ route('estimulo.configuracion.factor3.desempeno.index') }}" class="nav-link {{ isRouteActive('estimulo.configuracion.factor3.desempeno') }}">
+                                                    <i class="far fa-circle nav-icon"></i>
+                                                    <p>Desempeño</p>
                                                 </a>
                                             </li>
                                         @endcan
