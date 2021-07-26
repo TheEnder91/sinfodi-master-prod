@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\UsersController;
 use App\Http\Controllers\Admin\PermissionController;
 use App\Http\Controllers\Estimulos\ObjetivosController;
 use App\Http\Controllers\Estimulos\Factor2\MetasController;
+use App\Http\Controllers\Estimulos\Factor2\ImpactosController;
 use App\Http\Controllers\Estimulos\Factor1\ActividadesAController;
 use App\Http\Controllers\Estimulos\Factor1\ActividadesBController;
 use App\Http\Controllers\Estimulos\Factor1\ResponsabilidadesController;
@@ -61,5 +62,11 @@ class PermissionsTableSeeder extends Seeder
         Permission::updateOrCreate(['name' => MetasController::PERMISSIONS['show']], ['description' => 'Detalle Factor por Meta Alcanzada.', 'id_categoria' => 2, 'categoria' => 'Estimulos']);
         Permission::updateOrCreate(['name' => MetasController::PERMISSIONS['edit']], ['description' => 'Editar Factor por Meta Alcanzada.', 'id_categoria' => 2, 'categoria' => 'Estimulos']);
         Permission::updateOrCreate(['name' => MetasController::PERMISSIONS['delete']], ['description' => 'Eliminar Factor por Meta Alcanzada.', 'id_categoria' => 2, 'categoria' => 'Estimulos']);
+        // /** Permisos para el catalogo de Impacto */
+        Permission::updateOrCreate(['name' => ImpactosController::PERMISSIONS['index']], ['description' => 'Listado Factor por Nivel de Impacto.', 'id_categoria' => 2, 'categoria' => 'Estimulos']);
+        Permission::updateOrCreate(['name' => ImpactosController::PERMISSIONS['create']], ['description' => 'Nuevo Factor por Nivel de Impacto.', 'id_categoria' => 2, 'categoria' => 'Estimulos']);
+        Permission::updateOrCreate(['name' => ImpactosController::PERMISSIONS['show']], ['description' => 'Detalle Factor por Nivel de Impacto.', 'id_categoria' => 2, 'categoria' => 'Estimulos']);
+        Permission::updateOrCreate(['name' => ImpactosController::PERMISSIONS['edit']], ['description' => 'Editar Factor por Nivel de Impacto.', 'id_categoria' => 2, 'categoria' => 'Estimulos']);
+        Permission::updateOrCreate(['name' => ImpactosController::PERMISSIONS['delete']], ['description' => 'Eliminar Factor por Nivel de Impacto.', 'id_categoria' => 2, 'categoria' => 'Estimulos']);
     }
 }

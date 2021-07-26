@@ -64,4 +64,7 @@ Route::prefix('estimulos')->namespace('Estimulos')->name('estimulo.')->group(fun
     /** Rutas para el catalogo de metas alcanzadas... */
     Route::resource('metas', 'Factor2\MetasController')->names('configuracion.factor2.meta')->parameters(['metas' => 'meta'])->except(['create', 'show']);
     Route::get('tblMetas', 'Factor2\MetasController@tablaMetas');
+    /** Rutas para el catalogo de nivel de impacto al desarrollo institucional... */
+    Route::resource('impactos', 'Factor2\ImpactosController')->names('configuracion.factor2.impacto')->parameters(['impactos' => 'impacto'])->except(['create', 'show']);
+    Route::get('tblImpacto', 'Factor2\ImpactosController@tablaImpacto');
 });

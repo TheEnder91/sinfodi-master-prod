@@ -48,11 +48,11 @@
                     </li>
                 @endcan
                 @if (Auth::user()->hasPermissionTo('estimulo-objetivo-index') || Auth::user()->hasPermissionTo('estimulo-actividadA-index') || Auth::user()->hasPermissionTo('estimulo-actividadB-index') ||
-                     Auth::user()->hasPermissionTo('estimulo-responsabilidad-index') || Auth::user()->hasPermissionTo('estimulo-meta-index'))
+                     Auth::user()->hasPermissionTo('estimulo-responsabilidad-index') || Auth::user()->hasPermissionTo('estimulo-meta-index') || Auth::user()->hasPermissionTo('estimulo-impacto-index'))
                     <li class="nav-header">ESTIMULOS</li>
                 @endif
                 @if (Auth::user()->hasPermissionTo('estimulo-objetivo-index') || Auth::user()->hasPermissionTo('estimulo-actividadA-index') || Auth::user()->hasPermissionTo('estimulo-actividadB-index') ||
-                     Auth::user()->hasPermissionTo('estimulo-responsabilidad-index') || Auth::user()->hasPermissionTo('estimulo-meta-index'))
+                     Auth::user()->hasPermissionTo('estimulo-responsabilidad-index') || Auth::user()->hasPermissionTo('estimulo-meta-index') || Auth::user()->hasPermissionTo('estimulo-impacto-index'))
                     <li class="nav-item {{ isMenuOpen('estimulo.configuracion') }}">
                         <a href="#" class="nav-link {{ isRouteActive('estimulo.configuracion') }}">
                             <i class="nav-icon fa fa-cog"></i>
@@ -101,7 +101,7 @@
                                     </ul>
                                 </li>
                             @endif
-                            @if (Auth::user()->hasPermissionTo('estimulo-meta-index'))
+                            @if (Auth::user()->hasPermissionTo('estimulo-meta-index') || Auth::user()->hasPermissionTo('estimulo-impacto-index'))
                                 <li class="nav-item {{ isMenuOpen('estimulo.configuracion.factor2') }}">
                                     <a href="#" class="nav-link {{ isRouteActive('estimulo.congifuracion.factor2') }}">
                                         <i class="nav-icon fa fa-circle"></i>
@@ -113,6 +113,14 @@
                                                 <a style="font-size: 15px;" href="{{ route('estimulo.configuracion.factor2.meta.index') }}" class="nav-link {{ isRouteActive('estimulo.configuracion.factor2.meta') }}">
                                                     <i class="far fa-circle nav-icon"></i>
                                                     <p>Metas alcanzadas</p>
+                                                </a>
+                                            </li>
+                                        @endcan
+                                        @can('estimulo-impacto-index')
+                                            <li class="nav-item">
+                                                <a style="font-size: 15px;" href="{{ route('estimulo.configuracion.factor2.impacto.index') }}" class="nav-link {{ isRouteActive('estimulo.configuracion.factor2.impacto') }}">
+                                                    <i class="far fa-circle nav-icon"></i>
+                                                    <p>Nivel de impacto</p>
                                                 </a>
                                             </li>
                                         @endcan
