@@ -61,4 +61,7 @@ Route::prefix('estimulos')->namespace('Estimulos')->name('estimulo.')->group(fun
     /** Rutas para el catalogo de nivel de responsabilidad... */
     Route::resource('responsabilidades', 'Factor1\ResponsabilidadesController')->names('configuracion.factor1.responsabilidad')->parameters(['responsabilidades' => 'responsabilidad'])->except(['create', 'show']);
     Route::get('tblResponsabilidades', 'Factor1\ResponsabilidadesController@tablaResponsabilidades');
+    /** Rutas para el catalogo de metas alcanzadas... */
+    Route::resource('metas', 'Factor2\MetasController')->names('configuracion.factor2.meta')->parameters(['metas' => 'meta'])->except(['create', 'show']);
+    Route::get('tblMetas', 'Factor2\MetasController@tablaMetas');
 });

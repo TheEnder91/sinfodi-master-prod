@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\RolesController;
 use App\Http\Controllers\Admin\UsersController;
 use App\Http\Controllers\Admin\PermissionController;
 use App\Http\Controllers\Estimulos\ObjetivosController;
+use App\Http\Controllers\Estimulos\Factor2\MetasController;
 use App\Http\Controllers\Estimulos\Factor1\ActividadesAController;
 use App\Http\Controllers\Estimulos\Factor1\ActividadesBController;
 use App\Http\Controllers\Estimulos\Factor1\ResponsabilidadesController;
@@ -54,5 +55,11 @@ class PermissionsTableSeeder extends Seeder
         Permission::updateOrCreate(['name' => ResponsabilidadesController::PERMISSIONS['show']], ['description' => 'Detalle Nivel de Responsabilidad.', 'id_categoria' => 2, 'categoria' => 'Estimulos']);
         Permission::updateOrCreate(['name' => ResponsabilidadesController::PERMISSIONS['edit']], ['description' => 'Editar Nivel de Responsabilidad.', 'id_categoria' => 2, 'categoria' => 'Estimulos']);
         Permission::updateOrCreate(['name' => ResponsabilidadesController::PERMISSIONS['delete']], ['description' => 'Eliminar Nivel de Responsabilidad.', 'id_categoria' => 2, 'categoria' => 'Estimulos']);
+        // /** Permisos para el catalogo de metas alcanzadas */
+        Permission::updateOrCreate(['name' => MetasController::PERMISSIONS['index']], ['description' => 'Listado Factor por Meta Alcanzada.', 'id_categoria' => 2, 'categoria' => 'Estimulos']);
+        Permission::updateOrCreate(['name' => MetasController::PERMISSIONS['create']], ['description' => 'Nuevo Factor por Meta Alcanzada.', 'id_categoria' => 2, 'categoria' => 'Estimulos']);
+        Permission::updateOrCreate(['name' => MetasController::PERMISSIONS['show']], ['description' => 'Detalle Factor por Meta Alcanzada.', 'id_categoria' => 2, 'categoria' => 'Estimulos']);
+        Permission::updateOrCreate(['name' => MetasController::PERMISSIONS['edit']], ['description' => 'Editar Factor por Meta Alcanzada.', 'id_categoria' => 2, 'categoria' => 'Estimulos']);
+        Permission::updateOrCreate(['name' => MetasController::PERMISSIONS['delete']], ['description' => 'Eliminar Factor por Meta Alcanzada.', 'id_categoria' => 2, 'categoria' => 'Estimulos']);
     }
 }
