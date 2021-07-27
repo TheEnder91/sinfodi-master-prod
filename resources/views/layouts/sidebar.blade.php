@@ -49,12 +49,12 @@
                 @endcan
                 @if (Auth::user()->hasPermissionTo('estimulo-objetivo-index') || Auth::user()->hasPermissionTo('estimulo-actividadA-index') || Auth::user()->hasPermissionTo('estimulo-actividadB-index') ||
                      Auth::user()->hasPermissionTo('estimulo-responsabilidad-index') || Auth::user()->hasPermissionTo('estimulo-meta-index') || Auth::user()->hasPermissionTo('estimulo-impacto-index') ||
-                     Auth::user()->hasPermissionTo('estimulo-desempeño-index'))
+                     Auth::user()->hasPermissionTo('estimulo-desempeño-index') || Auth::user()->hasPermissionTo('estimulo-lineamiento-index'))
                     <li class="nav-header">ESTIMULOS</li>
                 @endif
                 @if (Auth::user()->hasPermissionTo('estimulo-objetivo-index') || Auth::user()->hasPermissionTo('estimulo-actividadA-index') || Auth::user()->hasPermissionTo('estimulo-actividadB-index') ||
                      Auth::user()->hasPermissionTo('estimulo-responsabilidad-index') || Auth::user()->hasPermissionTo('estimulo-meta-index') || Auth::user()->hasPermissionTo('estimulo-impacto-index') ||
-                     Auth::user()->hasPermissionTo('estimulo-desempeño-index'))
+                     Auth::user()->hasPermissionTo('estimulo-desempeño-index') || Auth::user()->hasPermissionTo('estimulo-lineamiento-index'))
                     <li class="nav-item {{ isMenuOpen('estimulo.configuracion') }}">
                         <a href="#" class="nav-link {{ isRouteActive('estimulo.configuracion') }}">
                             <i class="nav-icon fa fa-cog"></i>
@@ -66,6 +66,14 @@
                                     <a href="{{ route('estimulo.configuracion.objetivo.index') }}" class="nav-link {{ isRouteActive('estimulo.configuracion.objetivo') }}">
                                         <i class="nav-icon fa fa-circle fa-2x"></i>
                                         <p>Objetivos</p>
+                                    </a>
+                                </li>
+                            @endcan
+                            @can('estimulo-lineamientos-index')
+                                <li class="nav-item">
+                                    <a href="{{ route('estimulo.configuracion.lineamiento.index') }}" class="nav-link {{ isRouteActive('estimulo.configuracion.lineamiento') }}">
+                                        <i class="nav-icon fa fa-circle fa-2x"></i>
+                                        <p>Lineamientos</p>
                                     </a>
                                 </li>
                             @endcan

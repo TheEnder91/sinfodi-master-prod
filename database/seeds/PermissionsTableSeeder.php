@@ -12,6 +12,7 @@ use App\Http\Controllers\Estimulos\Factor3\DesempeñoController;
 use App\Http\Controllers\Estimulos\Factor1\ActividadesAController;
 use App\Http\Controllers\Estimulos\Factor1\ActividadesBController;
 use App\Http\Controllers\Estimulos\Factor1\ResponsabilidadesController;
+use App\Http\Controllers\Estimulos\LineamientosController;
 
 class PermissionsTableSeeder extends Seeder
 {
@@ -75,5 +76,7 @@ class PermissionsTableSeeder extends Seeder
         Permission::updateOrCreate(['name' => DesempeñoController::PERMISSIONS['show']], ['description' => 'Detalle Factor por Desempeño.', 'id_categoria' => 2, 'categoria' => 'Estimulos']);
         Permission::updateOrCreate(['name' => DesempeñoController::PERMISSIONS['edit']], ['description' => 'Editar Factor por Desempeño.', 'id_categoria' => 2, 'categoria' => 'Estimulos']);
         Permission::updateOrCreate(['name' => DesempeñoController::PERMISSIONS['delete']], ['description' => 'Eliminar Factor por Desempeño.', 'id_categoria' => 2, 'categoria' => 'Estimulos']);
+        /** Permisos para mostrar los lineamiento o reglamento para estimulos */
+        Permission::updateOrCreate(['name' => LineamientosController::PERMISSIONS['index']], ['description' => 'Lineamientos o Reglamento para estimulos', 'id_categoria' => 2, 'categoria' => 'Estimulos']);
     }
 }
