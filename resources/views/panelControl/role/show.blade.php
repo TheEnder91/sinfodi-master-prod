@@ -28,6 +28,23 @@
             </div>
             @component('components.card')
                 @slot('title_card', 'Asignación de permisos')
+                <section class="text-right">
+                    <button type="button" class="btn btn-primary" id="check-all">Seleccionar todos los permisos</button>
+                </section>
+                <script>
+                        var checked = false;
+                        $('#check-all').on('click',function(){
+                            if(checked == false) {
+                                $('.form-check-input').prop('checked', true);
+                                checked = true;
+                                document.getElementById('check-all').innerText = 'Deseleccionar todos los permisos';
+                            } else {
+                                $('.form-check-input').prop('checked', false);
+                                checked = false;
+                                document.getElementById('check-all').innerText = 'Seleccionar todos los permisos';
+                            }
+                        });
+                </script>
                 <div class="row">
                     <div class="col-5 col-sm-3">
                         <div class="nav flex-column nav-tabs h-100" id="vert-tabs-tab" role="tablist" aria-orientation="vertical">
